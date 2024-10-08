@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class VladekNeeds : MonoBehaviour
-{    
+{
+    public static VladekNeeds Instance;
+
     public float sleepNeed;
     public float sleepLostPerSecond;
     public float sleepRise;
@@ -21,6 +23,18 @@ public class VladekNeeds : MonoBehaviour
     public float funLostPerSecond;
     public float funRise;
     public Image funFill;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(Instance.gameObject);
+            Instance = this;
+        }
+    }
     void Start()
     {
         sleepNeed = 1;
