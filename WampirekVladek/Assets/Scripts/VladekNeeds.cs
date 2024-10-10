@@ -39,7 +39,7 @@ public class VladekNeeds : MonoBehaviour
     {
         sleepNeed = 1;
         GetFill(sleepNeed, sleepFill);
-        StartCoroutine(SleepLost());
+        //StartCoroutine(SleepLost());
         isSleeeping = false;
         sleepButton.isOn = isSleeeping;
 
@@ -51,7 +51,10 @@ public class VladekNeeds : MonoBehaviour
         GetFill(funNeed, funFill);
         StartCoroutine(FunLost());
     }
-
+    public void StartLosingSleep()
+    {
+        StartCoroutine(SleepLost());
+    }
     IEnumerator SleepLost()
     {
         if (sleepNeed > 1f)
@@ -60,9 +63,12 @@ public class VladekNeeds : MonoBehaviour
         }
         yield return new WaitForSeconds(1);
         sleepNeed -= sleepLostPerSecond;
-        sleepNeed = Mathf.Round(sleepNeed * 100.0f) * 0.01f;
+        sleepNeed = Mathf.Round(sleepNeed * 1000.0f) * 0.001f;
         GetFill(sleepNeed, sleepFill);
-        StartCoroutine(SleepLost());
+        if(MiniGameManager.Instance.isMiniGameOn)
+        {
+            StartCoroutine(SleepLost());
+        }
     }
     IEnumerator HungerLost()
     {
@@ -72,7 +78,7 @@ public class VladekNeeds : MonoBehaviour
         }
         yield return new WaitForSeconds(1);
         hungerNeed -= hungerLostPerSecond;
-        hungerNeed = Mathf.Round(hungerNeed * 100.0f) * 0.01f;
+        hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
         GetFill(hungerNeed, hungerFill);
         StartCoroutine(HungerLost());
     }
@@ -84,7 +90,7 @@ public class VladekNeeds : MonoBehaviour
         }
         yield return new WaitForSeconds(1);
         funNeed -= funLostPerSecond;
-        funNeed = Mathf.Round(funNeed * 100.0f) * 0.01f;
+        funNeed = Mathf.Round(funNeed * 1000.0f) * 0.001f;
         GetFill(funNeed, funFill);
         StartCoroutine(FunLost());
     }
@@ -96,17 +102,32 @@ public class VladekNeeds : MonoBehaviour
         }
         yield return new WaitForSeconds(1);
         sleepNeed += sleepRise;
-        sleepNeed = Mathf.Round(sleepNeed * 100.0f) * 0.01f;
+        sleepNeed = Mathf.Round(sleepNeed * 1000.0f) * 0.001f;
         GetFill(sleepNeed, sleepFill);
         if(isSleeeping)
         {
             StartCoroutine(Sleeping());
         }
     }
+    IEnumerator HavingFun()
+    {
+        if (funNeed > 1f)
+        {
+            funNeed = 1f;
+        }
+        yield return new WaitForSeconds(1);
+        funNeed += funRise;
+        funNeed = Mathf.Round(funNeed * 1000.0f) * 0.001f;
+        GetFill(funNeed, funFill);
+        if (MiniGameManager.Instance.isMiniGameOn)
+        {
+            StartCoroutine(HavingFun());
+        }
+    }
     private void GetFill(float currentAmount, Image imageToFill)
     {
         float fill = currentAmount / 1f;
-        fill = Mathf.Round(fill * 100.0f) * 0.01f;
+        fill = Mathf.Round(fill * 1000.0f) * 0.001f;
         imageToFill.fillAmount = fill;
     }
     public void Sleep()
@@ -122,17 +143,16 @@ public class VladekNeeds : MonoBehaviour
         if(!isSleeeping)
         {
             hungerNeed += hungerRise;
-            hungerNeed = Mathf.Round(hungerNeed * 100.0f) * 0.01f;
+            hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
             GetFill(hungerNeed, hungerFill);
         }
     }
     public void FunPlay()
     {
-        if(!isSleeeping)
+        if((!isSleeeping) && (sleepNeed > 0.2f) && (hungerNeed > 0.2f))
         {
-            funNeed += funRise;
-            funNeed = Mathf.Round(funNeed * 100.0f) * 0.01f;
-            GetFill(funNeed, funFill);
+            MiniGameManager.Instance.MiniGame();
+            StartCoroutine(HavingFun());
         }
     }
 }

@@ -46,18 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sleepNeed: 0
-  sleepLostPerSecond: 0.05
-  sleepRise: 0.3
+  sleepLostPerSecond: 0.01
+  sleepRise: 0.1
   sleepFill: {fileID: 0}
   isSleeeping: 0
   sleepButton: {fileID: 0}
   hungerNeed: 0
-  hungerLostPerSecond: 0.05
+  hungerLostPerSecond: 0.01
   hungerRise: 0.2
   hungerFill: {fileID: 0}
   funNeed: 0
   funLostPerSecond: 0.04
-  funRise: 0.5
+  funRise: 0.06
   funFill: {fileID: 0}
 --- !u!1 &7966768173536521399
 GameObject:
