@@ -16,10 +16,16 @@ public class MiniGameManager : MonoBehaviour
     public float miniGameCurrentTime;
     public TextMeshProUGUI timerTxt;
 
-    public GameObject garlic;
     public float maxX;
     public Transform spawnPoint;
-    public float spawnRate;
+    public GameObject garlic;
+    public float spawnRateGarlic;
+    public GameObject coin;
+    public float coinSpawnRate;
+    public GameObject bloodDrop;
+    public float bloodDropRate;
+    public int bloodDropNumber;
+    private int currentBloodDropNumber;
 
     private void Awake()
     {
@@ -58,6 +64,7 @@ public class MiniGameManager : MonoBehaviour
         mainGameUI.SetActive(true);
         miniGame.SetActive(false);
         miniGameUI.SetActive(false);
+        ShopAndMoney.Instance.MoneyUpdate();
     }
 
     public void MiniGame()
@@ -66,18 +73,42 @@ public class MiniGameManager : MonoBehaviour
         mainGameUI.SetActive(false);
         miniGame.SetActive(true);
         miniGameUI.SetActive(true);
+        currentBloodDropNumber = 0;
+        ShopAndMoney.Instance.MoneyUpdate();
         miniGameCurrentTime = miniGameBaseTime;        
         isMiniGameOn = true;
         VladekNeeds.Instance.StartLosingSleep();
         StartCoroutine(SpawnGarlic());
+        StartCoroutine(SpawnCoin());
+        StartCoroutine(SpawnBloodDrop());
     }
     IEnumerator SpawnGarlic()
     {
-        yield return new WaitForSeconds(spawnRate);
+        yield return new WaitForSeconds(spawnRateGarlic);
         Vector3 spawnPos = spawnPoint.position;
         spawnPos.x = Random.Range(-maxX, maxX);
         Instantiate(garlic, spawnPos, Quaternion.identity);
         StartCoroutine(SpawnGarlic());
+    }
+    IEnumerator SpawnCoin()
+    {
+        yield return new WaitForSeconds(coinSpawnRate);
+        Vector3 spawnPos = spawnPoint.position;
+        spawnPos.x = Random.Range(-maxX, maxX);
+        Instantiate(coin, spawnPos, Quaternion.identity);
+        StartCoroutine(SpawnCoin());
+    }
+    IEnumerator SpawnBloodDrop()
+    {
+        yield return new WaitForSeconds(bloodDropRate);
+        Vector3 spawnPos = spawnPoint.position;
+        spawnPos.x = Random.Range(-maxX, maxX);
+        Instantiate(bloodDrop, spawnPos, Quaternion.identity);
+        currentBloodDropNumber++;
+        if(currentBloodDropNumber < bloodDropNumber)
+        {
+            StartCoroutine(SpawnBloodDrop());
+        }
     }
     private void Display()
     {

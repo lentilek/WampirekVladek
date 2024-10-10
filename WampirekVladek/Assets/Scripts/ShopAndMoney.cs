@@ -9,6 +9,7 @@ public class ShopAndMoney : MonoBehaviour
 
     public int moneyAmount;
     public TextMeshProUGUI moneyTXT;
+    public TextMeshProUGUI moneyMiniGameTXT;
     private void Awake()
     {
         if (Instance == null)
@@ -24,6 +25,11 @@ public class ShopAndMoney : MonoBehaviour
     private void Start()
     {
         moneyAmount = 0;
+        MoneyUpdate();
+    }
+    public void MoneyUpdate()
+    {
         moneyTXT.text = $"$ {moneyAmount}";
+        moneyMiniGameTXT.text = $"$ {moneyAmount}";
     }
 }
