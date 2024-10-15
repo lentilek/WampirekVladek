@@ -53,10 +53,15 @@ MonoBehaviour:
   sleepButton: {fileID: 0}
   hungerNeed: 0
   hungerLostPerSecond: 0.01
-  hungerRise: 0.2
+  hungerMenu: {fileID: 0}
+  isHungerMenuOn: 0
+  hungerFood1Rise: 0.1
+  hungerFood2Rise: 0.3
+  hungerFood3Rise: 0.2
+  sleepFood3Rise: 0.3
   hungerFill: {fileID: 0}
   funNeed: 0
-  funLostPerSecond: 0.04
+  funLostPerSecond: 0.02
   funRise: 0.06
   funFill: {fileID: 0}
 --- !u!1 &7966768173536521399

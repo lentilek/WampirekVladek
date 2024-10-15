@@ -16,7 +16,12 @@ public class VladekNeeds : MonoBehaviour
 
     public float hungerNeed;
     public float hungerLostPerSecond;
-    public float hungerRise;
+    public GameObject hungerMenu;
+    public bool isHungerMenuOn;
+    public float hungerFood1Rise;
+    public float hungerFood2Rise;
+    public float hungerFood3Rise;
+    public float sleepFood3Rise;
     public Image hungerFill;
 
     public float funNeed;
@@ -44,6 +49,8 @@ public class VladekNeeds : MonoBehaviour
         sleepButton.isOn = isSleeeping;
 
         hungerNeed = 1f;
+        isHungerMenuOn = false;
+        hungerMenu.SetActive(false);
         GetFill(hungerNeed, hungerFill);
         StartCoroutine(HungerLost());
 
@@ -142,10 +149,47 @@ public class VladekNeeds : MonoBehaviour
     {
         if(!isSleeeping)
         {
-            hungerNeed += hungerRise;
-            hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
-            GetFill(hungerNeed, hungerFill);
+            if(isHungerMenuOn)
+            {
+                hungerMenu.SetActive(false);
+                isHungerMenuOn = false;
+            }
+            else
+            {
+                hungerMenu.SetActive(true);
+                isHungerMenuOn = true;
+            }
+            //hungerNeed += hungerRise;
+            //hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
+            //GetFill(hungerNeed, hungerFill);
         }
+    }
+    public void Food1()
+    {
+        hungerNeed += hungerFood1Rise;
+        hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
+        GetFill(hungerNeed, hungerFill);
+        ShopAndMoney.Instance.food1Amount--;
+        ShopAndMoney.Instance.TextUpdate(ShopAndMoney.Instance.food1AmountTXT, ShopAndMoney.Instance.food1Amount);
+    }
+    public void Food2()
+    {
+        hungerNeed += hungerFood2Rise;
+        hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
+        GetFill(hungerNeed, hungerFill);
+        ShopAndMoney.Instance.food2Amount--;
+        ShopAndMoney.Instance.TextUpdate(ShopAndMoney.Instance.food2AmountTXT, ShopAndMoney.Instance.food2Amount);
+    }
+    public void Food3()
+    {
+        hungerNeed += hungerFood3Rise;
+        hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
+        GetFill(hungerNeed, hungerFill);
+        sleepNeed += sleepFood3Rise;
+        sleepNeed = Mathf.Round(sleepNeed * 1000.0f) * 0.001f;
+        GetFill(sleepNeed, sleepFill);
+        ShopAndMoney.Instance.food3Amount--;
+        ShopAndMoney.Instance.TextUpdate(ShopAndMoney.Instance.food3AmountTXT, ShopAndMoney.Instance.food3Amount);
     }
     public void FunPlay()
     {

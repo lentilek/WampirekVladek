@@ -47,6 +47,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyAmount: 0
   moneyTXT: {fileID: 0}
+  moneyMiniGameTXT: {fileID: 0}
+  shop: {fileID: 0}
+  food1Amount: 0
+  food1Price: 3
+  food1AmountTXT: {fileID: 0}
+  food2Amount: 0
+  food2Price: 5
+  food2AmountTXT: {fileID: 0}
+  food3Amount: 0
+  food3Price: 6
+  food3AmountTXT: {fileID: 0}
 --- !u!114 &5772388658751351521
 MonoBehaviour:
   m_ObjectHideFlags: 0

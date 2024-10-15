@@ -10,6 +10,18 @@ public class ShopAndMoney : MonoBehaviour
     public int moneyAmount;
     public TextMeshProUGUI moneyTXT;
     public TextMeshProUGUI moneyMiniGameTXT;
+    public GameObject shop;
+    private bool isShopOn;
+
+    public int food1Amount;
+    public int food1Price;
+    public TextMeshProUGUI food1AmountTXT;
+    public int food2Amount;
+    public int food2Price;
+    public TextMeshProUGUI food2AmountTXT;
+    public int food3Amount;
+    public int food3Price;
+    public TextMeshProUGUI food3AmountTXT;
     private void Awake()
     {
         if (Instance == null)
@@ -24,12 +36,65 @@ public class ShopAndMoney : MonoBehaviour
     }
     private void Start()
     {
+        shop.SetActive(false);
+        isShopOn = false;
         moneyAmount = 0;
         MoneyUpdate();
+        food1Amount = 0;
+        food2Amount = 0;
+        food3Amount = 0;
     }
     public void MoneyUpdate()
     {
         moneyTXT.text = $"$ {moneyAmount}";
         moneyMiniGameTXT.text = $"$ {moneyAmount}";
+    }
+    public void TextUpdate(TextMeshProUGUI txt, int amount)
+    {
+        txt.text = amount.ToString();
+    }
+    public void ShopOnOff()
+    {
+        if(isShopOn)
+        {
+            shop.SetActive(false);
+            isShopOn = false;
+        }
+        else
+        {
+            shop.SetActive(true);
+            isShopOn = true;
+        }
+    }
+
+    public void Food1Buy()
+    {
+        if(moneyAmount >= food1Price)
+        {
+            moneyAmount -= food1Price;
+            food1Amount++;
+            MoneyUpdate();
+            TextUpdate(food1AmountTXT, food1Amount);
+        }
+    }
+    public void Food2Buy()
+    {
+        if (moneyAmount >= food2Price)
+        {
+            moneyAmount -= food2Price;
+            food2Amount++;
+            MoneyUpdate();
+            TextUpdate(food2AmountTXT, food2Amount);
+        }
+    }
+    public void Food3Buy()
+    {
+        if (moneyAmount >= food3Price)
+        {
+            moneyAmount -= food3Price;
+            food3Amount++;
+            MoneyUpdate();
+            TextUpdate(food3AmountTXT, food3Amount);
+        }
     }
 }
