@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ShopAndMoney : MonoBehaviour
 {
@@ -96,5 +97,10 @@ public class ShopAndMoney : MonoBehaviour
             MoneyUpdate();
             TextUpdate(food3AmountTXT, food3Amount);
         }
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

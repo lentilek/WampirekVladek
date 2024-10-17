@@ -83,7 +83,7 @@ MonoBehaviour:
   garlic: {fileID: 7891311781863151807, guid: 048e93cdf26f31243a10e60d8bbf043e, type: 3}
   spawnRateGarlic: 1
   coin: {fileID: 7891311781863151807, guid: a27a7ee9738bcc545b812c5015435336, type: 3}
-  coinSpawnRate: 2
+  coinSpawnRate: 1.7
   bloodDrop: {fileID: 7891311781863151807, guid: 336a25e7c55023946815c278007475af, type: 3}
-  bloodDropRate: 5
+  bloodDropRate: 4.4
   bloodDropNumber: 5

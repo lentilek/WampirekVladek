@@ -145,6 +145,10 @@ public class VladekNeeds : MonoBehaviour
             AudioManager.Instance.PlaySound("sleep");
             StartCoroutine(Sleeping());
         }
+        else
+        {
+            AudioManager.Instance.audioSrc.Stop();
+        }
     }
     public void HungerFeed()
     {
