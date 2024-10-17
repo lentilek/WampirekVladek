@@ -20,6 +20,7 @@ public class BloodDrop : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            AudioManager.Instance.PlaySound("blood");
             MiniGameManager.Instance.miniGameCurrentTime += gainTime;
             Destroy(gameObject);
         }

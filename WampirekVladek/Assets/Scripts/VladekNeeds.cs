@@ -142,6 +142,7 @@ public class VladekNeeds : MonoBehaviour
         isSleeeping = sleepButton.isOn;
         if(isSleeeping)
         {
+            AudioManager.Instance.PlaySound("sleep");
             StartCoroutine(Sleeping());
         }
     }
@@ -166,6 +167,7 @@ public class VladekNeeds : MonoBehaviour
     }
     public void Food1()
     {
+        AudioManager.Instance.PlaySound("chomp");
         hungerNeed += hungerFood1Rise;
         hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
         GetFill(hungerNeed, hungerFill);
@@ -174,6 +176,7 @@ public class VladekNeeds : MonoBehaviour
     }
     public void Food2()
     {
+        AudioManager.Instance.PlaySound("chomp");
         hungerNeed += hungerFood2Rise;
         hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
         GetFill(hungerNeed, hungerFill);
@@ -182,6 +185,7 @@ public class VladekNeeds : MonoBehaviour
     }
     public void Food3()
     {
+        AudioManager.Instance.PlaySound("chomp");
         hungerNeed += hungerFood3Rise;
         hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
         GetFill(hungerNeed, hungerFill);

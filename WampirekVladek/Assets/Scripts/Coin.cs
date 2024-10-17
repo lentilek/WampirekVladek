@@ -20,6 +20,7 @@ public class Coin : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             // gain money
+            AudioManager.Instance.PlaySound("coin");
             ShopAndMoney.Instance.moneyAmount++;
             ShopAndMoney.Instance.MoneyUpdate();
             Destroy(gameObject);

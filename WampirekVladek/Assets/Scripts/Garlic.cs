@@ -21,6 +21,7 @@ public class Garlic : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            AudioManager.Instance.PlaySound("hit");
             MiniGameManager.Instance.miniGameCurrentTime -= lostTime;
             Destroy(gameObject);
         }

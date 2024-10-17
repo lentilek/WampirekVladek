@@ -65,6 +65,7 @@ public class MiniGameManager : MonoBehaviour
         miniGame.SetActive(false);
         miniGameUI.SetActive(false);
         ShopAndMoney.Instance.MoneyUpdate();
+        MusicManager.Instance.PlayMusic("musicMinigame");
     }
 
     public void MiniGame()
@@ -78,6 +79,7 @@ public class MiniGameManager : MonoBehaviour
         miniGameCurrentTime = miniGameBaseTime;        
         isMiniGameOn = true;
         VladekNeeds.Instance.StartLosingSleep();
+        MusicManager.Instance.PlayMusic("musicMain");
         StartCoroutine(SpawnGarlic());
         StartCoroutine(SpawnCoin());
         StartCoroutine(SpawnBloodDrop());
