@@ -16,6 +16,8 @@ public class MiniGameManager : MonoBehaviour
     public float miniGameBaseTime;
     public float miniGameCurrentTime;
     public TextMeshProUGUI timerTxt;
+    public int currentMoney;
+    public TextMeshProUGUI currentMoneyTXT;
 
     public float maxX;
     public Transform spawnPoint;
@@ -54,14 +56,16 @@ public class MiniGameManager : MonoBehaviour
             if(miniGameCurrentTime < 0)
             {
                 StopAllCoroutines();
+                Time.timeScale = 0f;
                 gameOver.SetActive(true);
-                isMiniGameOn = false;
+                currentMoneyTXT.text = $"Collected coins: {Mathf.RoundToInt(currentMoney)}";
                 //MainGame();
             }
         }
     }
     public void MainGame()
     {
+        Time.timeScale = 1f;
         isMiniGameOn = false;
         mainGame.SetActive(true);
         mainGameUI.SetActive(true);
@@ -73,6 +77,7 @@ public class MiniGameManager : MonoBehaviour
 
     public void MiniGame()
     {
+        currentMoney = 0;
         mainGame.SetActive(false);
         mainGameUI.SetActive(false);
         miniGame.SetActive(true);
