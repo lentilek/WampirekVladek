@@ -28,6 +28,18 @@ public class VladekNeeds : MonoBehaviour
     public float funLostPerSecond;
     public float funRise;
     public Image funFill;
+
+    public GameObject faceNeutral;
+    public GameObject faceHungry;
+    public GameObject faceHappy;
+    public GameObject faceSad;
+    public GameObject faceTired;
+    public GameObject facePetted;
+    public GameObject clothesDress;
+    public GameObject clothesGentleman;
+    public GameObject clothesJournalist;
+    public GameObject coffin;
+    public GameObject body;
     private void Awake()
     {
         if (Instance == null)
@@ -42,6 +54,11 @@ public class VladekNeeds : MonoBehaviour
     }
     void Start()
     {
+        ClearVladekFace();
+        ClearVladekBody();
+        faceHappy.SetActive(true);
+        coffin.SetActive(false);
+        body.SetActive(true);
         sleepNeed = 1;
         GetFill(sleepNeed, sleepFill);
         //StartCoroutine(SleepLost());
@@ -57,6 +74,32 @@ public class VladekNeeds : MonoBehaviour
         funNeed = 1f;
         GetFill(funNeed, funFill);
         StartCoroutine(FunLost());
+    }
+    private void Update()
+    {
+        if(hungerNeed <= .35f)
+        {
+            ClearVladekFace();
+            faceHungry.SetActive(true);
+        }
+        else if(sleepNeed <= .35f)
+        {
+            ClearVladekFace();
+            faceTired.SetActive(true);
+        }else if (funNeed <= .35)
+        {
+            ClearVladekFace();
+            faceSad.SetActive(true);
+        }else if(funNeed <= .7f)
+        {
+            ClearVladekFace();
+            faceNeutral.SetActive(true);
+        }
+        else
+        {
+            ClearVladekFace();
+            faceHappy.SetActive(true);
+        }
     }
     public void StartLosingSleep()
     {
@@ -140,14 +183,18 @@ public class VladekNeeds : MonoBehaviour
     public void Sleep()
     {
         isSleeeping = !sleepButton.isOn;
-        if(!isSleeeping)
+        if(isSleeeping)
         {
             AudioManager.Instance.PlaySound("sleep");
+            body.SetActive(false);
+            coffin.SetActive(true);
             StartCoroutine(Sleeping());
         }
         else
         {
             AudioManager.Instance.audioSrc.Stop();
+            body.SetActive(true);
+            coffin.SetActive(false);
         }
     }
     public void HungerFeed()
@@ -216,5 +263,21 @@ public class VladekNeeds : MonoBehaviour
             MiniGameManager.Instance.MiniGame();
             StartCoroutine(HavingFun());
         }
+    }
+
+    public void ClearVladekFace()
+    {
+        faceNeutral.SetActive(false);
+        faceHungry.SetActive(false);
+        faceHappy.SetActive(false);
+        faceSad.SetActive(false);
+        faceTired.SetActive(false);
+        facePetted.SetActive(false);
+    }
+    public void ClearVladekBody()
+    {
+        clothesDress.SetActive(false);
+        clothesGentleman.SetActive(false);
+        clothesJournalist.SetActive(false);
     }
 }
