@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ShopAndMoney : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ShopAndMoney : MonoBehaviour
     public TextMeshProUGUI moneyTXT;
     public TextMeshProUGUI moneyMiniGameTXT;
     public GameObject shop;
+    public Toggle shopToggle;
     private bool isShopOn;
 
     public int food1Amount;
@@ -39,6 +41,7 @@ public class ShopAndMoney : MonoBehaviour
     {
         shop.SetActive(false);
         isShopOn = false;
+        shopToggle.isOn = isShopOn;
         moneyAmount = 0;
         MoneyUpdate();
         food1Amount = 0;
@@ -60,11 +63,13 @@ public class ShopAndMoney : MonoBehaviour
         {
             shop.SetActive(false);
             isShopOn = false;
+            shopToggle.isOn = isShopOn;
         }
         else
         {
             shop.SetActive(true);
             isShopOn = true;
+            shopToggle.isOn = isShopOn;
         }
     }
 

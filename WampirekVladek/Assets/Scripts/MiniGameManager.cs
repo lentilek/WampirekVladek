@@ -12,6 +12,7 @@ public class MiniGameManager : MonoBehaviour
     public GameObject miniGameUI;
     public GameObject mainGame;
     public GameObject mainGameUI;
+    public GameObject gameOver;
     public float miniGameBaseTime;
     public float miniGameCurrentTime;
     public TextMeshProUGUI timerTxt;
@@ -53,7 +54,9 @@ public class MiniGameManager : MonoBehaviour
             if(miniGameCurrentTime < 0)
             {
                 StopAllCoroutines();
-                MainGame();
+                gameOver.SetActive(true);
+                isMiniGameOn = false;
+                //MainGame();
             }
         }
     }
@@ -74,6 +77,7 @@ public class MiniGameManager : MonoBehaviour
         mainGameUI.SetActive(false);
         miniGame.SetActive(true);
         miniGameUI.SetActive(true);
+        gameOver.SetActive(false);
         currentBloodDropNumber = 0;
         ShopAndMoney.Instance.MoneyUpdate();
         miniGameCurrentTime = miniGameBaseTime;        

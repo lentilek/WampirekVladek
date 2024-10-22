@@ -46,7 +46,7 @@ public class VladekNeeds : MonoBehaviour
         GetFill(sleepNeed, sleepFill);
         //StartCoroutine(SleepLost());
         isSleeeping = false;
-        sleepButton.isOn = isSleeeping;
+        sleepButton.isOn = !isSleeeping;
 
         hungerNeed = 1f;
         isHungerMenuOn = false;
@@ -139,8 +139,8 @@ public class VladekNeeds : MonoBehaviour
     }
     public void Sleep()
     {
-        isSleeeping = sleepButton.isOn;
-        if(isSleeeping)
+        isSleeeping = !sleepButton.isOn;
+        if(!isSleeeping)
         {
             AudioManager.Instance.PlaySound("sleep");
             StartCoroutine(Sleeping());
@@ -171,33 +171,43 @@ public class VladekNeeds : MonoBehaviour
     }
     public void Food1()
     {
-        AudioManager.Instance.PlaySound("chomp");
-        hungerNeed += hungerFood1Rise;
-        hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
-        GetFill(hungerNeed, hungerFill);
-        ShopAndMoney.Instance.food1Amount--;
-        ShopAndMoney.Instance.TextUpdate(ShopAndMoney.Instance.food1AmountTXT, ShopAndMoney.Instance.food1Amount);
+        if(ShopAndMoney.Instance.food1Amount > 0)
+        {
+            AudioManager.Instance.PlaySound("chomp");
+            hungerNeed += hungerFood1Rise;
+            hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
+            GetFill(hungerNeed, hungerFill);
+            ShopAndMoney.Instance.food1Amount--;
+            ShopAndMoney.Instance.TextUpdate(ShopAndMoney.Instance.food1AmountTXT, ShopAndMoney.Instance.food1Amount);
+        }
+
     }
     public void Food2()
     {
-        AudioManager.Instance.PlaySound("chomp");
-        hungerNeed += hungerFood2Rise;
-        hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
-        GetFill(hungerNeed, hungerFill);
-        ShopAndMoney.Instance.food2Amount--;
-        ShopAndMoney.Instance.TextUpdate(ShopAndMoney.Instance.food2AmountTXT, ShopAndMoney.Instance.food2Amount);
+        if (ShopAndMoney.Instance.food2Amount > 0)
+        {
+            AudioManager.Instance.PlaySound("chomp");
+            hungerNeed += hungerFood2Rise;
+            hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
+            GetFill(hungerNeed, hungerFill);
+            ShopAndMoney.Instance.food2Amount--;
+            ShopAndMoney.Instance.TextUpdate(ShopAndMoney.Instance.food2AmountTXT, ShopAndMoney.Instance.food2Amount);
+        }
     }
     public void Food3()
     {
-        AudioManager.Instance.PlaySound("chomp");
-        hungerNeed += hungerFood3Rise;
-        hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
-        GetFill(hungerNeed, hungerFill);
-        sleepNeed += sleepFood3Rise;
-        sleepNeed = Mathf.Round(sleepNeed * 1000.0f) * 0.001f;
-        GetFill(sleepNeed, sleepFill);
-        ShopAndMoney.Instance.food3Amount--;
-        ShopAndMoney.Instance.TextUpdate(ShopAndMoney.Instance.food3AmountTXT, ShopAndMoney.Instance.food3Amount);
+        if (ShopAndMoney.Instance.food3Amount > 0)
+        {
+            AudioManager.Instance.PlaySound("chomp");
+            hungerNeed += hungerFood3Rise;
+            hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
+            GetFill(hungerNeed, hungerFill);
+            sleepNeed += sleepFood3Rise;
+            sleepNeed = Mathf.Round(sleepNeed * 1000.0f) * 0.001f;
+            GetFill(sleepNeed, sleepFill);
+            ShopAndMoney.Instance.food3Amount--;
+            ShopAndMoney.Instance.TextUpdate(ShopAndMoney.Instance.food3AmountTXT, ShopAndMoney.Instance.food3Amount);
+        }
     }
     public void FunPlay()
     {
