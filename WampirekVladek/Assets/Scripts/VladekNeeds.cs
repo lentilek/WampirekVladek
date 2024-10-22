@@ -40,6 +40,8 @@ public class VladekNeeds : MonoBehaviour
     public GameObject clothesJournalist;
     public GameObject coffin;
     public GameObject body;
+
+    public GameObject gameOver;
     private void Awake()
     {
         if (Instance == null)
@@ -54,11 +56,13 @@ public class VladekNeeds : MonoBehaviour
     }
     void Start()
     {
+        Time.timeScale = 1.0f;
         ClearVladekFace();
         ClearVladekBody();
         faceHappy.SetActive(true);
         coffin.SetActive(false);
         body.SetActive(true);
+        gameOver.SetActive(false);
         sleepNeed = 1;
         GetFill(sleepNeed, sleepFill);
         //StartCoroutine(SleepLost());
@@ -99,6 +103,12 @@ public class VladekNeeds : MonoBehaviour
         {
             ClearVladekFace();
             faceHappy.SetActive(true);
+        }
+
+        if(hungerNeed <= 0 || funNeed <= 0)
+        {
+            Time.timeScale = 0f;
+            gameOver.SetActive(true);
         }
     }
     public void StartLosingSleep()
@@ -199,26 +209,25 @@ public class VladekNeeds : MonoBehaviour
     }
     public void HungerFeed()
     {
-        if(!isSleeeping)
+        if(isHungerMenuOn)
         {
-            if(isHungerMenuOn)
-            {
-                hungerMenu.SetActive(false);
-                isHungerMenuOn = false;
-            }
-            else
-            {
-                hungerMenu.SetActive(true);
-                isHungerMenuOn = true;
-            }
+            AudioManager.Instance.PlaySound("button");
+            hungerMenu.SetActive(false);
+            isHungerMenuOn = false;
+        }
+        else
+        {
+            AudioManager.Instance.PlaySound("button");
+            hungerMenu.SetActive(true);
+            isHungerMenuOn = true;
+        }
             //hungerNeed += hungerRise;
             //hungerNeed = Mathf.Round(hungerNeed * 1000.0f) * 0.001f;
             //GetFill(hungerNeed, hungerFill);
-        }
     }
     public void Food1()
     {
-        if(ShopAndMoney.Instance.food1Amount > 0)
+        if(ShopAndMoney.Instance.food1Amount > 0 && !isSleeeping)
         {
             AudioManager.Instance.PlaySound("chomp");
             hungerNeed += hungerFood1Rise;
@@ -231,7 +240,7 @@ public class VladekNeeds : MonoBehaviour
     }
     public void Food2()
     {
-        if (ShopAndMoney.Instance.food2Amount > 0)
+        if (ShopAndMoney.Instance.food2Amount > 0 && !isSleeeping)
         {
             AudioManager.Instance.PlaySound("chomp");
             hungerNeed += hungerFood2Rise;
@@ -243,7 +252,7 @@ public class VladekNeeds : MonoBehaviour
     }
     public void Food3()
     {
-        if (ShopAndMoney.Instance.food3Amount > 0)
+        if (ShopAndMoney.Instance.food3Amount > 0 && !isSleeeping )
         {
             AudioManager.Instance.PlaySound("chomp");
             hungerNeed += hungerFood3Rise;

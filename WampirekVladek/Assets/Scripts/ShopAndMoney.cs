@@ -61,12 +61,14 @@ public class ShopAndMoney : MonoBehaviour
     {
         if(isShopOn)
         {
+            AudioManager.Instance.PlaySound("button");
             shop.SetActive(false);
             isShopOn = false;
             shopToggle.isOn = isShopOn;
         }
         else
         {
+            AudioManager.Instance.PlaySound("button");
             shop.SetActive(true);
             isShopOn = true;
             shopToggle.isOn = isShopOn;
@@ -77,6 +79,7 @@ public class ShopAndMoney : MonoBehaviour
     {
         if(moneyAmount >= food1Price)
         {
+            AudioManager.Instance.PlaySound("buy");
             moneyAmount -= food1Price;
             food1Amount++;
             MoneyUpdate();
@@ -87,6 +90,7 @@ public class ShopAndMoney : MonoBehaviour
     {
         if (moneyAmount >= food2Price)
         {
+            AudioManager.Instance.PlaySound("buy");
             moneyAmount -= food2Price;
             food2Amount++;
             MoneyUpdate();
@@ -97,6 +101,7 @@ public class ShopAndMoney : MonoBehaviour
     {
         if (moneyAmount >= food3Price)
         {
+            AudioManager.Instance.PlaySound("buy");
             moneyAmount -= food3Price;
             food3Amount++;
             MoneyUpdate();
@@ -106,6 +111,7 @@ public class ShopAndMoney : MonoBehaviour
 
     public void MainMenu()
     {
+        AudioManager.Instance.PlaySound("button");
         SceneManager.LoadScene(0);
     }
 }
