@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &19970401355738817
 Transform:
   m_ObjectHideFlags: 0
@@ -224,9 +224,9 @@ MonoBehaviour:
   hungerLostPerSecond: 0.01
   hungerMenu: {fileID: 0}
   isHungerMenuOn: 0
-  hungerFood1Rise: 0.1
-  hungerFood2Rise: 0.3
-  hungerFood3Rise: 0.2
+  hungerFood1Rise: 0.2
+  hungerFood2Rise: 0.5
+  hungerFood3Rise: 0.3
   sleepFood3Rise: 0.3
   hungerFill: {fileID: 0}
   funNeed: 0
@@ -244,6 +244,7 @@ MonoBehaviour:
   clothesJournalist: {fileID: 396853135991132523}
   coffin: {fileID: 1186317412978692443}
   body: {fileID: 7966768173536521399}
+  gameOver: {fileID: 0}
 --- !u!1 &1186317412978692443
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &851738505432123945
 Transform:
   m_ObjectHideFlags: 0

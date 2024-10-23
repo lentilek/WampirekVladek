@@ -481,7 +481,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 54105433290279831, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 396853135991132523, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
       propertyPath: m_IsActive
@@ -545,7 +545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3728019317312220253, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3888396853673603549, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
       propertyPath: funFill
