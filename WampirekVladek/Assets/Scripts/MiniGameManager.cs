@@ -55,6 +55,7 @@ public class MiniGameManager : MonoBehaviour
             Display();
             if(miniGameCurrentTime < 0)
             {
+                AudioManager.Instance.PlaySound("gameover");
                 StopAllCoroutines();
                 Time.timeScale = 0f;
                 gameOver.SetActive(true);
@@ -65,6 +66,7 @@ public class MiniGameManager : MonoBehaviour
     }
     public void MainGame()
     {
+        AudioManager.Instance.PlaySound("button");
         Time.timeScale = 1f;
         isMiniGameOn = false;
         mainGame.SetActive(true);

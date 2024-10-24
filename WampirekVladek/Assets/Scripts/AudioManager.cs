@@ -34,22 +34,22 @@ public class AudioManager : MonoBehaviour
                 audioSrc.PlayOneShot(blood);
                 break;
             case "button":
-                audioSrc.PlayOneShot(button); /// to do
+                audioSrc.PlayOneShot(button);
                 break;
             case "buy":
-                audioSrc.PlayOneShot(buy);  /// to do
+                audioSrc.PlayOneShot(buy); 
                 break;
             case "chomp":
                 audioSrc.PlayOneShot(chomp);
                 break;
             case "clothes":
-                audioSrc.PlayOneShot(clothes); /// to do
+                audioSrc.PlayOneShot(clothes); 
                 break;
             case "coin":
                 audioSrc.PlayOneShot(coin);
                 break;
             case "gameover":
-                audioSrc.PlayOneShot(gameover); /// to do
+                audioSrc.PlayOneShot(gameover);
                 break;
             case "hit":
                 audioSrc.PlayOneShot(hit);
@@ -58,7 +58,7 @@ public class AudioManager : MonoBehaviour
                 audioSrc.PlayOneShot(petting); /// to do
                 break;
             case "sleep":
-                audioSrc.PlayOneShot(sleep); /// on loop????
+                audioSrc.PlayOneShot(sleep);
                 break;
             default: break;
         }
