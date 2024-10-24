@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Garlic : MonoBehaviour
 {
-    public float lostTime;
+    [SerializeField] private float lostTime;
     void Update()
     {
         if(transform.position.y < -1.5f)

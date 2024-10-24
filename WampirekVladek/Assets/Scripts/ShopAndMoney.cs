@@ -10,39 +10,39 @@ public class ShopAndMoney : MonoBehaviour
     public static ShopAndMoney Instance;
 
     public int moneyAmount;
-    public TextMeshProUGUI moneyTXT;
-    public TextMeshProUGUI moneyMiniGameTXT;
-    public GameObject shop;
-    public Toggle shopToggle;
+    [SerializeField] private TextMeshProUGUI moneyTXT;
+    [SerializeField] private TextMeshProUGUI moneyMiniGameTXT;
+    [SerializeField] private GameObject shop;
+    [SerializeField] private Toggle shopToggle;
     private bool isShopOn;
 
     public int food1Amount;
-    public int food1Price;
+    [SerializeField] private int food1Price;
     public TextMeshProUGUI food1AmountTXT;
     public int food2Amount;
-    public int food2Price;
+    [SerializeField] private int food2Price;
     public TextMeshProUGUI food2AmountTXT;
     public int food3Amount;
-    public int food3Price;
+    [SerializeField] private int food3Price;
     public TextMeshProUGUI food3AmountTXT;
 
-    public GameObject clothes1;
-    public GameObject clothes1Buy;
-    public int clothes1Price;
-    public GameObject clothes1Toggle;
-    private bool isClothes1On;
+    [SerializeField] private GameObject clothes1;
+    [SerializeField] private GameObject clothes1Buy;
+    [SerializeField] private int clothes1Price;
+    [SerializeField] private GameObject clothes1Toggle;
+    [HideInInspector] public bool isClothes1On;
 
-    public GameObject clothes2;
-    public GameObject clothes2Buy;
-    public int clothes2Price;
-    public GameObject clothes2Toggle;
-    private bool isClothes2On;
+    [SerializeField] private GameObject clothes2;
+    [SerializeField] private GameObject clothes2Buy;
+    [SerializeField] private int clothes2Price;
+    [SerializeField] private GameObject clothes2Toggle;
+    [HideInInspector] public bool isClothes2On;
 
-    public GameObject clothes3;
-    public GameObject clothes3Buy;
-    public int clothes3Price;
-    public GameObject clothes3Toggle;
-    private bool isClothes3On;
+    [SerializeField] private GameObject clothes3;
+    [SerializeField] private GameObject clothes3Buy;
+    [SerializeField] private int clothes3Price;
+    [SerializeField] private GameObject clothes3Toggle;
+    [HideInInspector] public bool isClothes3On;
     private void Awake()
     {
         if (Instance == null)

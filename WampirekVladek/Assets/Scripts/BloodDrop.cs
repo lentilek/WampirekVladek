@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BloodDrop : MonoBehaviour
 {
-    public float gainTime;
+    [SerializeField] private float gainTime;
     void Update()
     {
         if (transform.position.y < -1.5f)

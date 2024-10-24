@@ -51,23 +51,29 @@ MonoBehaviour:
   shop: {fileID: 0}
   shopToggle: {fileID: 0}
   food1Amount: 0
-  food1Price: 5
+  food1Price: 3
   food1AmountTXT: {fileID: 0}
   food2Amount: 0
-  food2Price: 13
+  food2Price: 10
   food2AmountTXT: {fileID: 0}
   food3Amount: 0
-  food3Price: 25
+  food3Price: 15
   food3AmountTXT: {fileID: 0}
   clothes1: {fileID: 0}
-  clothes1Price: 50
+  clothes1Buy: {fileID: 0}
+  clothes1Price: 35
   clothes1Toggle: {fileID: 0}
+  isClothes1On: 0
   clothes2: {fileID: 0}
-  clothes2Price: 75
+  clothes2Buy: {fileID: 0}
+  clothes2Price: 45
   clothes2Toggle: {fileID: 0}
+  isClothes2On: 0
   clothes3: {fileID: 0}
-  clothes3Price: 99
+  clothes3Buy: {fileID: 0}
+  clothes3Price: 55
   clothes3Toggle: {fileID: 0}
+  isClothes3On: 0
 --- !u!114 &5772388658751351521
 MonoBehaviour:
   m_ObjectHideFlags: 0

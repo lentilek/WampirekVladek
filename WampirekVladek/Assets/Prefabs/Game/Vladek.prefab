@@ -226,7 +226,7 @@ MonoBehaviour:
   isHungerMenuOn: 0
   hungerFood1Rise: 0.2
   hungerFood2Rise: 0.5
-  hungerFood3Rise: 0.3
+  hungerFood3Rise: 0.35
   sleepFood3Rise: 0.3
   hungerFill: {fileID: 0}
   funNeed: 0
