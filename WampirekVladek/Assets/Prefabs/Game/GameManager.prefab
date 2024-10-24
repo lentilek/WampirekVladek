@@ -59,6 +59,15 @@ MonoBehaviour:
   food3Amount: 0
   food3Price: 25
   food3AmountTXT: {fileID: 0}
+  clothes1: {fileID: 0}
+  clothes1Price: 50
+  clothes1Toggle: {fileID: 0}
+  clothes2: {fileID: 0}
+  clothes2Price: 75
+  clothes2Toggle: {fileID: 0}
+  clothes3: {fileID: 0}
+  clothes3Price: 99
+  clothes3Toggle: {fileID: 0}
 --- !u!114 &5772388658751351521
 MonoBehaviour:
   m_ObjectHideFlags: 0
