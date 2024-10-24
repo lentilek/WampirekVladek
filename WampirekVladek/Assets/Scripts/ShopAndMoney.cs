@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ShopAndMoney : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ShopAndMoney : MonoBehaviour
     public TextMeshProUGUI moneyTXT;
     public TextMeshProUGUI moneyMiniGameTXT;
     public GameObject shop;
+    public Toggle shopToggle;
     private bool isShopOn;
 
     public int food1Amount;
@@ -39,6 +41,7 @@ public class ShopAndMoney : MonoBehaviour
     {
         shop.SetActive(false);
         isShopOn = false;
+        shopToggle.isOn = isShopOn;
         moneyAmount = 0;
         MoneyUpdate();
         food1Amount = 0;
@@ -58,13 +61,17 @@ public class ShopAndMoney : MonoBehaviour
     {
         if(isShopOn)
         {
+            AudioManager.Instance.PlaySound("button");
             shop.SetActive(false);
             isShopOn = false;
+            shopToggle.isOn = isShopOn;
         }
         else
         {
+            AudioManager.Instance.PlaySound("button");
             shop.SetActive(true);
             isShopOn = true;
+            shopToggle.isOn = isShopOn;
         }
     }
 
@@ -72,6 +79,7 @@ public class ShopAndMoney : MonoBehaviour
     {
         if(moneyAmount >= food1Price)
         {
+            AudioManager.Instance.PlaySound("buy");
             moneyAmount -= food1Price;
             food1Amount++;
             MoneyUpdate();
@@ -82,6 +90,7 @@ public class ShopAndMoney : MonoBehaviour
     {
         if (moneyAmount >= food2Price)
         {
+            AudioManager.Instance.PlaySound("buy");
             moneyAmount -= food2Price;
             food2Amount++;
             MoneyUpdate();
@@ -92,6 +101,7 @@ public class ShopAndMoney : MonoBehaviour
     {
         if (moneyAmount >= food3Price)
         {
+            AudioManager.Instance.PlaySound("buy");
             moneyAmount -= food3Price;
             food3Amount++;
             MoneyUpdate();
@@ -101,6 +111,7 @@ public class ShopAndMoney : MonoBehaviour
 
     public void MainMenu()
     {
+        AudioManager.Instance.PlaySound("button");
         SceneManager.LoadScene(0);
     }
 }

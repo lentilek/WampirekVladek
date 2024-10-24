@@ -23,6 +23,7 @@ public class Coin : MonoBehaviour
             AudioManager.Instance.PlaySound("coin");
             ShopAndMoney.Instance.moneyAmount++;
             ShopAndMoney.Instance.MoneyUpdate();
+            MiniGameManager.Instance.currentMoney++;
             Destroy(gameObject);
         }
     }

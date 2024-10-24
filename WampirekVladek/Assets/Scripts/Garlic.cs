@@ -23,6 +23,7 @@ public class Garlic : MonoBehaviour
         {
             AudioManager.Instance.PlaySound("hit");
             MiniGameManager.Instance.miniGameCurrentTime -= lostTime;
+            if(MiniGameManager.Instance.miniGameCurrentTime < 0) MiniGameManager.Instance.miniGameCurrentTime = 0;
             Destroy(gameObject);
         }
     }
