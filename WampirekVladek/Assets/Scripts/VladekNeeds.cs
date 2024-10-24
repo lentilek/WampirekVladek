@@ -81,7 +81,12 @@ public class VladekNeeds : MonoBehaviour
     }
     private void Update()
     {
-        if(hungerNeed <= .35f)
+        if (VladekPetting.Instance.isPetted)
+        {
+            ClearVladekFace();
+            facePetted.SetActive(true);
+        }
+        else if(hungerNeed <= .35f)
         {
             ClearVladekFace();
             faceHungry.SetActive(true);
@@ -107,6 +112,7 @@ public class VladekNeeds : MonoBehaviour
 
         if((hungerNeed <= 0 || funNeed <= 0) && !MiniGameManager.Instance.isMiniGameOn)
         {
+            AudioManager.Instance.PlaySound("gameover");
             Time.timeScale = 0f;
             gameOver.SetActive(true);
         }
