@@ -10,38 +10,38 @@ public class VladekNeeds : MonoBehaviour
     public float sleepNeed;
     public float sleepLostPerSecond;
     public float sleepRise;
-    public Image sleepFill;
+    [SerializeField] private Image sleepFill;
     public bool isSleeeping;
-    public Toggle sleepButton;
+    [SerializeField] private Toggle sleepButton;
 
     public float hungerNeed;
     public float hungerLostPerSecond;
-    public GameObject hungerMenu;
+    [SerializeField] private GameObject hungerMenu;
     public bool isHungerMenuOn;
     public float hungerFood1Rise;
     public float hungerFood2Rise;
     public float hungerFood3Rise;
     public float sleepFood3Rise;
-    public Image hungerFill;
+    [SerializeField] private Image hungerFill;
 
     public float funNeed;
     public float funLostPerSecond;
     public float funRise;
-    public Image funFill;
+    [SerializeField] private Image funFill;
 
-    public GameObject faceNeutral;
-    public GameObject faceHungry;
-    public GameObject faceHappy;
-    public GameObject faceSad;
-    public GameObject faceTired;
-    public GameObject facePetted;
-    public GameObject clothesDress;
-    public GameObject clothesGentleman;
-    public GameObject clothesJournalist;
-    public GameObject coffin;
-    public GameObject body;
+    [SerializeField] private GameObject faceNeutral;
+    [SerializeField] private GameObject faceHungry;
+    [SerializeField] private GameObject faceHappy;
+    [SerializeField] private GameObject faceSad;
+    [SerializeField] private GameObject faceTired;
+    [SerializeField] private GameObject facePetted;
+    [SerializeField] private GameObject clothesDress;
+    [SerializeField] private GameObject clothesGentleman;
+    [SerializeField] private GameObject clothesJournalist;
+    [SerializeField] private GameObject coffin;
+    [SerializeField] private GameObject body;
 
-    public GameObject gameOver;
+    [SerializeField] private GameObject gameOver;
     private void Awake()
     {
         if (Instance == null)
@@ -81,7 +81,12 @@ public class VladekNeeds : MonoBehaviour
     }
     private void Update()
     {
-        if(hungerNeed <= .35f)
+        if (VladekPetting.Instance.isPetted)
+        {
+            ClearVladekFace();
+            facePetted.SetActive(true);
+        }
+        else if(hungerNeed <= .35f)
         {
             ClearVladekFace();
             faceHungry.SetActive(true);
@@ -105,8 +110,9 @@ public class VladekNeeds : MonoBehaviour
             faceHappy.SetActive(true);
         }
 
-        if(hungerNeed <= 0 || funNeed <= 0)
+        if((hungerNeed <= 0 || funNeed <= 0) && !MiniGameManager.Instance.isMiniGameOn)
         {
+            AudioManager.Instance.PlaySound("gameover");
             Time.timeScale = 0f;
             gameOver.SetActive(true);
         }

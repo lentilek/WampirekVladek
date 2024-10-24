@@ -8,6 +8,10 @@ public class VladekMini : MonoBehaviour
 
     public float moveSpeed;
     private Rigidbody2D rb;
+
+    [SerializeField] private GameObject outfit1;
+    [SerializeField] private GameObject outfit2;
+    [SerializeField] private GameObject outfit3;
     private void Awake()
     {
         if (Instance == null)
@@ -41,5 +45,15 @@ public class VladekMini : MonoBehaviour
     public void MoveRight()
     {
         rb.AddForce(Vector2.right * moveSpeed);
+    }
+
+    public void OutfitSwap()
+    {
+        outfit1.SetActive(false);
+        outfit2.SetActive(false);
+        outfit3.SetActive(false);
+        if (ShopAndMoney.Instance.isClothes1On) outfit1.SetActive(true);
+        if (ShopAndMoney.Instance.isClothes2On) outfit2.SetActive(true);
+        if (ShopAndMoney.Instance.isClothes3On) outfit3.SetActive(true);
     }
 }

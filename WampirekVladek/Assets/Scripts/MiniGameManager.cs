@@ -2,32 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEditor.ShaderKeywordFilter;
 
 public class MiniGameManager : MonoBehaviour
 {
     public static MiniGameManager Instance;
 
     public bool isMiniGameOn;
-    public GameObject miniGame;
-    public GameObject miniGameUI;
-    public GameObject mainGame;
-    public GameObject mainGameUI;
-    public GameObject gameOver;
-    public float miniGameBaseTime;
+    [SerializeField] private GameObject miniGame;
+    [SerializeField] private GameObject miniGameUI;
+    [SerializeField] private GameObject mainGame;
+    [SerializeField] private GameObject mainGameUI;
+    [SerializeField] private GameObject gameOver;
+    [SerializeField] private float miniGameBaseTime;
     public float miniGameCurrentTime;
-    public TextMeshProUGUI timerTxt;
+    [SerializeField] private TextMeshProUGUI timerTxt;
     public int currentMoney;
-    public TextMeshProUGUI currentMoneyTXT;
+    [SerializeField] private TextMeshProUGUI currentMoneyTXT;
 
-    public float maxX;
-    public Transform spawnPoint;
-    public GameObject garlic;
-    public float spawnRateGarlic;
-    public GameObject coin;
-    public float coinSpawnRate;
-    public GameObject bloodDrop;
-    public float bloodDropRate;
-    public int bloodDropNumber;
+    [SerializeField] private float maxX;
+    [SerializeField] private Transform spawnPoint;
+    [SerializeField] private GameObject garlic;
+    [SerializeField] private float spawnRateGarlic;
+    [SerializeField] private GameObject coin;
+    [SerializeField] private float coinSpawnRate;
+    [SerializeField] private GameObject bloodDrop;
+    [SerializeField] private float bloodDropRate;
+    [SerializeField] private int bloodDropNumber;
     private int currentBloodDropNumber;
 
     private void Awake()
@@ -59,12 +60,14 @@ public class MiniGameManager : MonoBehaviour
                 Time.timeScale = 0f;
                 gameOver.SetActive(true);
                 currentMoneyTXT.text = $"Collected coins: {Mathf.RoundToInt(currentMoney)}";
+                isMiniGameOn = false;
                 //MainGame();
             }
         }
     }
     public void MainGame()
     {
+        AudioManager.Instance.PlaySound("button");
         Time.timeScale = 1f;
         isMiniGameOn = false;
         mainGame.SetActive(true);
@@ -89,6 +92,7 @@ public class MiniGameManager : MonoBehaviour
         isMiniGameOn = true;
         VladekNeeds.Instance.StartLosingSleep();
         MusicManager.Instance.PlayMusic("musicMinigame");
+        VladekMini.Instance.OutfitSwap();
         StartCoroutine(SpawnGarlic());
         StartCoroutine(SpawnCoin());
         StartCoroutine(SpawnBloodDrop());
