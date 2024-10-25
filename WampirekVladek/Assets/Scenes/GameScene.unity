@@ -630,6 +630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vladek
       objectReference: {fileID: 0}
+    - target: {fileID: 819187852651148823, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1186317412978692443, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -637,6 +641,10 @@ PrefabInstance:
     - target: {fileID: 2258986700301705409, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776693318467000788, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2900310517472365976, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
       propertyPath: m_IsActive
@@ -718,13 +726,41 @@ PrefabInstance:
       propertyPath: sleepButton
       value: 
       objectReference: {fileID: 1811649342}
+    - target: {fileID: 4748946463759335419, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4949328458482919547, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5822320289708947538, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6419222003451596297, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367426166223512450, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7444817872972780071, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7966768173536521399, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266260114455036186, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8797843984008628567, guid: c18f8f2e508cc1a419e515f30c72fd8c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
