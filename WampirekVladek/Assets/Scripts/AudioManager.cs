@@ -49,7 +49,7 @@ public class AudioManager : MonoBehaviour
                 audioSrc.PlayOneShot(coin);
                 break;
             case "gameover":
-                audioSrc.PlayOneShot(gameover);
+                audioSrc.PlayOneShot(gameover, 0.25f);
                 break;
             case "hit":
                 audioSrc.PlayOneShot(hit);

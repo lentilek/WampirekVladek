@@ -67,7 +67,7 @@ public class MiniGameManager : MonoBehaviour
     }
     public void MainGame()
     {
-        AudioManager.Instance.PlaySound("button");
+        //AudioManager.Instance.PlaySound("button");
         Time.timeScale = 1f;
         isMiniGameOn = false;
         mainGame.SetActive(true);
@@ -93,6 +93,7 @@ public class MiniGameManager : MonoBehaviour
         VladekNeeds.Instance.StartLosingSleep();
         MusicManager.Instance.PlayMusic("musicMinigame");
         VladekMini.Instance.OutfitSwap();
+        VladekMini.Instance.gameObject.transform.position = new Vector3(-0.02f, -1.23f, 0);
         StartCoroutine(SpawnGarlic());
         StartCoroutine(SpawnCoin());
         StartCoroutine(SpawnBloodDrop());
