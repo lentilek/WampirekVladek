@@ -273,7 +273,7 @@ public class VladekNeeds : MonoBehaviour
     }
     public void FunPlay()
     {
-        if((!isSleeeping) && (sleepNeed > 0.2f) && (hungerNeed > 0.2f))
+        if((!isSleeeping) && (sleepNeed > 0.2f))
         {
             MiniGameManager.Instance.MiniGame();
             StartCoroutine(HavingFun());

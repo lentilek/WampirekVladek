@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7235053089256750148}
   - component: {fileID: 2293409234393568076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6941430640570851788}
   - component: {fileID: 3322033031380578239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Clothes_Dress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7584840510446903092}
   - component: {fileID: 794248023928771684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Clothes_Journalist
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4655446164636307480}
   - component: {fileID: 3826572608981003786}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Clothes_Gentleman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 330962323069825553}
   - component: {fileID: 7422744599018978048}
   - component: {fileID: 977252251862266072}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VladekMini
   m_TagString: Player
   m_Icon: {fileID: 0}
